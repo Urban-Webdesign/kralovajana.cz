@@ -1,16 +1,41 @@
 @include media-breakpoint-up(sm) {
+
+  .heading {
+    gap: 1rem;
+
+    h1 {
+      font-size: 2.7rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      line-height: 140%;
+    }
+  }
+
+
   .cta-buttons {
     flex-direction: row;
     justify-content: center;
     gap: 3rem;
 
     a {
-      width: 250px;
+      width: 300px;
     }
   }
 }
 
 @include media-breakpoint-up(md) {
+
+
+  .heading {
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .cta-buttons {
+    justify-content: flex-start;
+  }
 
   .help, .consultancy {
     padding: 3rem;
@@ -30,13 +55,25 @@
       grid-gap: 1.5rem;
     }
   }
+
+  .scroll-down {
+    width: auto;
+    left: 50%;
+    position: absolute;
+    bottom: 30px;
+  }
 }
 
 @include media-breakpoint-up(lg) {
 
-  .scroll-down {
-    position: absolute;
-    bottom: 30px;
+  .heading {
+    h1 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 1.6rem;
+    }
   }
 
   footer.main-footer {
@@ -216,6 +253,14 @@
 
 @include media-breakpoint-up(xl) {
 
+  .heading {
+    gap: 2rem;
+
+    h1 {
+      font-size: 3.3rem;
+    }
+  }
+
   .help, .consultancy {
     padding: 5rem;
   }
@@ -249,6 +294,17 @@
 
 @include media-breakpoint-up(xxl) {
 
+  .bg-light {
+    background: linear-gradient(to right, rgba($white, 0.6) 5%, $white 20%, rgba($white, 0.8)) !important;
+  }
+
+  .heading {
+    margin-top: 150px;
+
+    h1 {
+      font-size: 3.8rem;
+    }
+  }
 
   h2 {
     font-size: 2.8rem;
@@ -297,10 +353,10 @@
     &:after {
       content: '';
       position: absolute;
-      width: 40vh;
-      height: 40vh;
-      left: -20.1vh;
-      top: 30vh;
+      width: 60vh;
+      height: 60vh;
+      left: calc(-30.1vh + 50px);
+      top: calc(-30.1vh + 50px);
       z-index: 10;
       opacity: .5;
       background: url("../../img/mandala.svg") no-repeat;
