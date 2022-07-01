@@ -20,6 +20,7 @@
     .articles-row {
       max-width: 850px;
       margin: 0 auto;
+      grid-gap: 3rem;
       justify-content: center;
       grid-template-columns: 1fr 1fr;
     }
@@ -32,6 +33,11 @@
 }
 
 @include media-breakpoint-up(lg) {
+
+  .scroll-down {
+    position: absolute;
+    bottom: 30px;
+  }
 
   footer.main-footer {
     padding-top: 150px;
@@ -107,8 +113,7 @@
   }
 
   .about-content {
-    display: grid;
-    grid-gap: 3rem;
+    grid-gap: 2rem;
     grid-template-columns: 500px 1fr;
     justify-content: center;
     align-items: flex-start;

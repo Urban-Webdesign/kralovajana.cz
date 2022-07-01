@@ -3,6 +3,7 @@
 namespace App\FrontModule\Presenters;
 
 use K2D\Gallery\Models\GalleryModel;
+use K2D\Gallery\Models\ImageModel;
 use K2D\News\Models\NewModel;
 use Nette\Utils\Paginator;
 
@@ -11,6 +12,9 @@ class NewPresenter extends BasePresenter
 
     /** @inject */
     public GalleryModel $galleryModel;
+
+    /** @inject */
+    public ImageModel $imageModel;
 
     /** @inject */
     public NewModel $newModel;
@@ -36,7 +40,7 @@ class NewPresenter extends BasePresenter
         $this->template->new = $new;
 
         if (isset($new->gallery_id))
-            $this->template->gallery = $this->galleryModel->getGallery($new->gallery_id);
+            $this->template->images = $this->imageModel->getImagesByGallery($new->gallery_id);
     }
 
 }
