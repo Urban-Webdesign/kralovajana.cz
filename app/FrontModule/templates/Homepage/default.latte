@@ -1,3 +1,214 @@
 {block #content}
+    <header id="uvod">
+        <div class="container">
+            <h1>Sledujte své myšlenky, stanou se z nich slova.<br />
+                Sledujte svá slova, stanou se z nich činy.<br />
+                Sledujte své činy, stanou se z nich zvyky.<br />
+                Sledujte své zvyky, vytváří váš charakter.<br />
+                Sledujte svůj charakter, vytváří váš osud.
+                <small>/Lao-C´/</small>
+            </h1>
+            <div class="cta-buttons">
+                <a href="#sluzby" class="btn btn-primary btn-lg">Čím se zabývám</a>
+                <a href="#o-mne" class="btn btn-light btn-lg">Kdo jsem</a>
+            </div>
+            <a href="#o-mne" class="scroll-down scroll">
+                <svg id="svg-arrow-down" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 22 35" style="enable-background:new 0 0 22 35;" xml:space="preserve">
+                    <polygon class="arrow" points="20.58,11.584 12.004,20.158 12.004,0 9.996,0 9.996,20.158 1.42,11.584 0,13.004 11,24 22,13.004 "></polygon>
+                </svg>
+            </a>
+        </div>
+    </header>
 
+    <section class="about" id="o-mne">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="{$basePath}/dist/img/profile.jpeg" class="img-fluid" alt="Jana Králová">
+                </div>
+                <div class="text">
+                    <h2>O mně</h2>
+                    {box about}<br>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="help container">
+        <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl">S čím Vám mohu pomoci?</button>
+    </div>
+
+    <section class="container services" id="sluzby">
+        <span style="position: absolute; top: -100px" id="koucink"></span>
+        <div class="service coaching">
+            <div class="img-heading">
+                <h2>Koučink</h2>
+                <img src="{$basePath}/dist/img/coaching.jpeg" class="img-fluid" alt="Jana Králová - Koučink">
+            </div>
+            <div class="service-text">
+                <h3>Co je koučink?</h3>
+                <p>{box coachingShort}</p>
+                <a n:href="Homepage:coaching" class="btn btn-primary">Zajímá mě víc</a>
+            </div>
+        </div>
+
+        <div class="service esences">
+            <span style="position: absolute; top: -100px" id="bachovy-esence"></span>
+            <div class="img-heading">
+                <h2>Bachovy esence</h2>
+                <img src="{$basePath}/dist/img/esences.jpeg" class="img-fluid" alt="Jana Králová - Bachovy esence">
+            </div>
+            <div class="service-text">
+                <h3>Co jsou Bachovy esence?</h3>
+                <p>{box esencesShort}</p>
+                <a n:href="Homepage:esences" class="btn btn-primary">Zajímá mě víc</a>
+            </div>
+        </div>
+
+        <div class="service homeopathy">
+            <span style="position: absolute; top: -100px" id="homeopatie"></span>
+            <div class="img-heading">
+                <h2>Homeopatie</h2>
+                <img src="{$basePath}/dist/img/homeopathy.jpeg" class="img-fluid" alt="Jana Králová - Homeopatie">
+            </div>
+            <div class="service-text">
+                <h3>Co je Homeopatie?</h3>
+                <p>{box homeopathyShort}</p>
+                <a n:href="Homepage:homeopathy" class="btn btn-primary">Zajímá mě víc</a>
+            </div>
+        </div>
+
+        <div class="service painting">
+            <span style="position: absolute; top: -100px" id="automaticka-kresba-diagnosticka"></span>
+            <div class="img-heading">
+                <h2>Automatická kresba diagnostická</h2>
+                <img src="{$basePath}/dist/img/painting.jpeg" class="img-fluid" alt="Jana Králová - Automatická kresba diagnostická">
+            </div>
+            <div class="service-text">
+                <h3>Co je Automatická kresba diagnostická?</h3>
+                <p>{box paintingShort}</p>
+                <a n:href="Homepage:painting" class="btn btn-primary">Zajímá mě víc</a>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="consultancy container">
+        <h3>Kde mohou konzultace probíhat?</h3>
+        {box consultancy}
+    </div>
+
+
+    <section class="news" id="aktuality">
+        <div class="container">
+            <h2>Aktuality</h2>
+
+            {if count($news) > 0}
+                <div class="articles-row">
+                {foreach $news as $new}
+                    <div class="new article">
+                        <img n:ifset="$new->cover" src="{$basePath}/upload/news/{$new->id}/{$new->cover}" class="img-fluid" alt="{$new->title}">
+                        <div class="text">
+                            <time datetime="{$new->created|date:"Y-m-d"}">{$new->created|dayMonth}</time>
+                            <a n:href="New:show $new->slug">
+                                <h4>{$new->title}</h4>
+                            </a>
+                            {if $new->perex}
+                               {$new->perex|noescape|truncate:300}
+                            {elseif $new->content}
+                               {$new->content|noescape|truncate:300}
+                            {/if}
+                        </div>
+                    </div>
+                {/foreach}
+                </div>
+                <div class="container text-center">
+                    <a n:href="New:default" class="btn btn-primary mt-5">Archiv aktualit</a>
+                </div>
+            {else}
+                <div class="alert alert-default">Zatím nebyly zveřejněny žádné aktuality.</div>
+            {/if}
+        </div>
+    </section>
+
+    <section class="pricing">
+        <span style="position: absolute; top: -100px" id="cenik"></span>
+        <div class="container">
+            <h2>Ceník</h2>
+            {box pricing}
+        </div>
+    </section>
+
+    <section class="container contact" id="kontakt">
+        <h2>Kontakt</h2>
+
+        <ul class="contact-list">
+            <li n:if="$vars->phone"><a href="tel:{$vars->phone}"><i class="fa-solid fa-phone"></i> {$vars->phone}</a></li>
+            <li><a n:if="$vars->email" href="mailto:{$vars->email}"><i class="fa-solid fa-at"></i> {$vars->email}</a></li>
+            <li><a n:href="Homepage:"><i class="fa-solid fa-globe"></i> kralovajana.cz</a></li>
+        </ul>
+
+        <div class="contact-form">
+            <h3 class="mb-4">Ozvěte se mi</h3>
+
+            {snippet contactFlashes}
+                {foreach $flashes as $flash}
+                    <div class="alert alert-{$flash->type} alert-dismissible fade show" style="max-width: 500px; margin: 2rem auto" role="alert">
+                        {$flash->message}
+                    </div>
+                {/foreach}
+            {/snippet}
+
+			{snippet contactForm}
+                {form contactForm, class => 'form-grid'}
+                    <div class="fname">
+                        {label name}{/label}
+						{input name class => 'form-control'}
+                    </div>
+
+                    <div class="fphone">
+                        {label phone}{/label}
+						{input phone class => 'form-control'}
+                    </div>
+
+                    <div class="femail">
+                        {label email}{/label}
+						{input email class => 'form-control'}
+                    </div>
+
+                    <div class="fmessage">
+                        {label message}{/label}
+						{input message class => 'form-control', rows => 5}
+                    </div>
+
+                    <div class="fsubmit d-inline-flex align-items-center">
+                        <div class="spinner-border spinner-contact mr-3" style="display: none;" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        {input submit class => 'btn btn-success btn-lg ajax submit-contactForm'}
+                    </div>
+                {/form}
+            {/snippet}
+        </div>
+    </section>
+
+    <div class="modal about-modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">S čím Vám mohu pomoci?</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <img src="{$basePath}/dist/img/article-header.jpg" class="img-fluid" alt="Králová Jana - logo v mandale">
+                <div class="modal-body">
+                    {box about2}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Zavřít</button>
+                </div>
+            </div>
+        </div>
+    </div>
 {/block}

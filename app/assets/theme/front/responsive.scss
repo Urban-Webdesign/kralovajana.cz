@@ -1,0 +1,315 @@
+@include media-breakpoint-up(sm) {
+  .cta-buttons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+
+    a {
+      width: 250px;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+
+  .help, .consultancy {
+    padding: 3rem;
+  }
+
+  .news, .news-page {
+    .articles-row {
+      max-width: 850px;
+      margin: 0 auto;
+      justify-content: center;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .article {
+      max-width: 400px;
+      grid-gap: 1.5rem;
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+
+  footer.main-footer {
+    padding-top: 150px;
+  }
+
+  .help, .consultancy {
+    padding: 4rem;
+  }
+
+  .nav-link, .dropdown-item {
+    font-size: 1.1rem;
+  }
+
+  h2 {
+    font-size: 2.4rem;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+  }
+
+  h4 {
+    margin-top: 1.5rem;
+    text-align: left;
+  }
+
+  .pricing {
+    padding: 3rem;
+  }
+
+  .help {
+    position: relative;
+    overflow: hidden;
+    padding: 7rem;
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      right: -151px;
+      top: 0;
+      background: url("../../img/mandala.svg") no-repeat;
+      background-size: contain;
+    }
+  }
+
+
+  .btn-lg {;
+    padding: 20px 50px;
+    font-size: 1.15rem;
+  }
+
+  .bg-light {
+    background: linear-gradient(to right, rgba($white, 0.9) 60%, rgba($white, 0.8)) !important;
+  }
+
+  header {
+
+    .container {
+      margin-top: 0;
+    }
+
+    h1 {
+      text-align: left;
+      font-size: 2rem;
+      line-height: 140%;
+    }
+
+    .cta-buttons {
+      justify-content: flex-start;
+    }
+  }
+
+  .about-content {
+    display: grid;
+    grid-gap: 3rem;
+    grid-template-columns: 500px 1fr;
+    justify-content: center;
+    align-items: flex-start;
+
+    .text {
+      font-size: 1.2rem;
+
+      li {
+        margin-bottom: .5rem;
+      }
+
+      h2 {
+        text-align: left;
+      }
+    }
+  }
+
+  .services {
+    grid-gap: 8rem;
+  }
+  .service {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 3rem;
+    align-items: start;
+  }
+
+  .coaching, .homeopathy {
+    .service-text, h3 {
+      text-align: left;
+    }
+
+    .btn {
+      width: 300px;
+      float: left;
+    }
+  }
+
+  .esences, .painting {
+    .img-heading {
+      order: 2;
+    }
+
+    .service-text, h3 {
+      text-align: right;
+    }
+
+    .btn {
+      width: 300px;
+      float: right;
+    }
+  }
+
+  .contact-list {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .form-grid {
+    border-radius: 5px;
+    border: 1px solid $gray-200;
+    padding: 2rem;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 2rem;
+    grid-template-areas:
+    "name name message message"
+    "phone email message message"
+    ". submit submit .";
+
+    .fname {
+      grid-area: name;
+    }
+    .fphone {
+      grid-area: phone;
+    }
+    .femail {
+      grid-area: email;
+    }
+    .fmessage {
+      grid-area: message;
+
+      textarea {
+        height: 100%;
+      }
+    }
+
+    .fsubmit {
+      margin-top: 2rem;
+      grid-area: submit;
+    }
+
+    input {
+      height: 100%;
+    }
+  }
+
+}
+
+@include media-breakpoint-up(xl) {
+
+  .help, .consultancy {
+    padding: 5rem;
+  }
+
+  .about {
+    .about-img {
+      max-width: 500px;
+    }
+  }
+
+  .service {
+    margin: 0 auto;
+    grid-gap: 5rem;
+
+    .img-heading {
+      max-width: 500px;
+
+      h2 {
+        font-size: 2.5rem;
+      }
+    }
+  }
+
+  .coaching,.homeopathy {
+    grid-template-columns: 500px 1fr;
+  }
+  .esences, .painting {
+    grid-template-columns: 1fr 500px;
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+
+
+  h2 {
+    font-size: 2.8rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  h4 {
+    margin-top: 1.6rem;
+  }
+
+  .consultancy {
+    grid-template-columns: 250px 1fr 200px;
+    grid-gap: 2rem;
+    align-items: baseline;
+
+    ol {
+      font-size: 1.2rem;
+      li {
+        margin-bottom: .5rem;
+      }
+    }
+  }
+
+  .scroll-down {
+    width: 80px;
+    height: 80px;
+    background: $white;
+    border-radius: 50%;
+    left: 50%;
+    bottom: 100px;
+    transform: translateX(-50%);
+
+    svg {
+      width: 30px;
+    }
+  }
+
+  header {
+    background-size: auto 100%;
+    background-position:  right bottom 20%;
+
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 40vh;
+      height: 40vh;
+      left: -20.1vh;
+      top: 30vh;
+      z-index: 10;
+      opacity: .5;
+      background: url("../../img/mandala.svg") no-repeat;
+      background-size: contain;
+    }
+
+    &:before {
+      background: linear-gradient(to right, #e7f9ff 30%, rgba($gray-200, 0));
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      line-height: 150%;
+    }
+  }
+}
+

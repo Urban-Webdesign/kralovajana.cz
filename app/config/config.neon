@@ -9,7 +9,10 @@ application:
 
 services:
 	router: App\RouterFactory::createRouter()
+	repository: App\Service\ProjectModelRepository
 
 parameters:
 	customTemplatesDir: %appDir%/FrontModule/templates/
 
+extensions:
+    dateFilterExtension: h4kuna\DateFilter\DI\DateFilterExtension

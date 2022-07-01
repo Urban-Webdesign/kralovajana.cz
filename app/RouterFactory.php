@@ -17,8 +17,16 @@ class RouterFactory
 		$router->withModule('Admin')
 			->addRoute('admin/<presenter>/<action>[/<id>]', 'Homepage:default');
 
-		$router->withModule('Front')
-			->addRoute('[<lang=cs (cs)>/]<presenter>/<action>', 'Homepage:default');
+        $router->withModule('Front')
+            ->addRoute('[<lang=cs (cs)>/]', 'Homepage:default')
+            ->addRoute('[<lang=cs (cs)>/]koucink', 'Homepage:coaching')
+            ->addRoute('[<lang=cs (cs)>/]bachovy-esence', 'Homepage:esences')
+            ->addRoute('[<lang=cs (cs)>/]homeopatie', 'Homepage:homeopathy')
+            ->addRoute('[<lang=cs (cs)>/]automaticka-kresba-diagnosticka', 'Homepage:painting')
+
+            ->addRoute('[<lang=cs (cs)>/]aktuality', 'New:default')
+            ->addRoute('[<lang=cs (cs)>/]aktualita/<slug>', 'New:show')
+            ->addRoute('[<lang=cs (cs)>/]<presenter>/<action>', 'Error:404');
 
 		return $router;
 	}
