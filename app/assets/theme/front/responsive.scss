@@ -253,6 +253,11 @@
 
 @include media-breakpoint-up(xl) {
 
+  body, html {
+    font-size: 17px;
+    line-height: 140%;
+  }
+
   .heading {
     gap: 2rem;
 
